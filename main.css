@@ -48,14 +48,17 @@ nav ul a:hover {
   grid-template-columns: 1fr 1fr;
   align-items: center;
 }
-
 .heroImage {
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0 auto;
+  background-image: url("My project(15)(1).png");
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
+
 .heroSection h1 {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
   color: #e6e5e5;
 }
@@ -65,7 +68,7 @@ nav ul a:hover {
 }
 
 .heroSection p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: 500;
   color: #d4d4d3;
   line-height: 150%;
@@ -75,8 +78,8 @@ nav ul a:hover {
 
 .heroSection button {
   padding: 10px 20px;
-  width: 250px;
-  height: 50px;
+  width: clamp(150px, 25vw, 200px);
+  height: clamp(40px, 10vw, 50px);
   border: none;
   border-radius: 50px;
   color: #d4d4d3;
@@ -107,8 +110,8 @@ nav ul a:hover {
 .specialCard {
   position: relative;
   background-color: #363636;
-  width: 80vw;
-  margin: -5% auto;
+  width: 70vw;
+  margin: -80px auto;
   padding: 20px;
   border-radius: 10px;
   z-index: 5;
@@ -120,4 +123,19 @@ nav ul a:hover {
   justify-content: space-around;
   align-items: center;
   padding: 20px;
+}
+
+.specialCardText h1 {
+  color: #6d64d0;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+@media screen and (max-width: 1330px) {
+  .heroImage {
+    display: none;
+  }
+  .heroSection {
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+  }
 }
