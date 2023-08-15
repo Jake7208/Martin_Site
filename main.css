@@ -9,6 +9,7 @@
 body {
   /* background-color: #1f1f1f; */
   font-family: "inter", sans-serif;
+  scroll-behavior: smooth;
 }
 
 nav {
@@ -150,9 +151,11 @@ nav ul a:hover {
 
 .mainSection h1 {
   font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: 2%;
 }
 .services {
-  height: 70vh;
+  height: auto;
+  margin-bottom: 10%;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -229,8 +232,105 @@ nav ul a:hover {
 .serviceCardA {
   color: #1f1f1f;
 }
+/*  Quote Section For quote machine */
+.quote {
+  height: 70vh;
+}
+.quote h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: 10%;
+}
+.quoteBox {
+  width: 100%;
+  margin: 0 auto;
+  background: #1f1f1f;
+  color: #968fea;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 10px;
+  padding: 5% 10%;
+  gap: 2rem;
+}
+.quoteContainer {
+  grid-column: span 2;
+}
+.quoteContainer,
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  width: 100%;
+}
+
+.quoteContainer label,
+.priceContainer label {
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  color: #968fea;
+  margin-left: 3%;
+}
+
+#phone {
+  width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 3px solid #d4d4d3;
+  background: #1f1f1f;
+  color: #d4d4d3;
+  border-radius: 50px;
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+}
+
+#price {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 3px solid #d4d4d3;
+  background: #1f1f1f;
+  color: #d4d4d3;
+  border-radius: 50px;
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+}
+.priceContainer .highlight {
+  font-size: 2rem;
+  color: #968fea;
+  font-weight: 700;
+  margin-left: 3%;
+}
+.serviceCost {
+  width: 80%;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  margin: 0 auto;
+}
+.quoteBox button {
+  grid-column: span 3;
+  width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  background: #968fea;
+  color: #363636;
+  border-radius: 50px;
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  cursor: pointer;
+  margin-top: 20px;
+}
+.quoteBox button:hover {
+  color: #363636;
+  background: #d4d4d3;
+
+  transition: all 0.5s;
+}
+
 /* Media Queries */
 @media screen and (max-width: 1330px) {
+  nav {
+    display: none;
+  }
   .heroImage {
     display: none;
   }
@@ -240,7 +340,7 @@ nav ul a:hover {
     text-align: center;
   }
   .specialCard {
-    width: 100vw;
+    width: 100%;
   }
   .serviceCards {
     grid-template-columns: 1fr;
@@ -250,5 +350,21 @@ nav ul a:hover {
   }
   .cardWrapper p {
     padding: 10px 0;
+  }
+  .quoteBox {
+    grid-template-columns: 1fr;
+    padding: none;
+  }
+  .quoteContainer {
+    grid-column: span 3;
+  }
+  .priceContainer {
+    grid-column: span 3;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mainSection {
+    width: 90vw;
   }
 }
