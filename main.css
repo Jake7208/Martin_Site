@@ -251,13 +251,14 @@ nav ul a:hover {
   border: none;
   border-radius: 50px;
   color: #d4d4d3;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
   font-weight: 500;
   cursor: pointer;
 }
 .heroSection a {
   text-decoration: none;
   color: #d4d4d3;
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
 }
 .heroSection .filled {
   background-color: #6d64d0;
@@ -650,7 +651,7 @@ nav ul a:hover {
   cursor: pointer;
   background: #1f1f1f;
   z-index: 2;
-  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  font-size: clamp(0.6rem, 3vw, 1.1rem);
 }
 .contactButtons a:hover {
   transition: 0.3s all;
