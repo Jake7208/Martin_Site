@@ -9,7 +9,7 @@
   <body>
     <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home" class="activeNav">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#quote">Quote</a></li>
         <li><a href="#testimonial">Testimonial</a></li>
@@ -24,7 +24,7 @@
     <div class="menu">
       <div class="nav-container">
         <div class="menu_item">
-          <a href="#home" class="menu_link">Home</a>
+          <a href="#home" class="menu_link activeNav">Home</a>
           <a href="#services" class="menu_link">Services</a>
           <a href="#quote" class="menu_link">Quote</a>
           <a href="#testimonial" class="menu_link">Testimonial</a>
@@ -41,8 +41,8 @@
           >
         </h1>
         <p>Laptop & Phone Repair Services</p>
-        <button class="filled">Contact</button>
-        <button class="outline">Get a Quote</button>
+        <button class="filled"><a href="#quote">Contact</a></button>
+        <button class="outline"><a href="#quote">Get a Quote</a></button>
       </div>
     </div>
     <section class="specialCardSection">
@@ -170,7 +170,7 @@
         </div>
       </div>
     </section>
-    <section class="contact" id="contact">
+    <section class="contact">
       <div class="contactText">
         <h1>Schedule an Appointment: Monday - Friday, 8am - 5pm</h1>
         <div class="contactButtons">
@@ -180,14 +180,17 @@
       </div>
     </section>
     <footer>
-      <div class="footerText">
+      <div class="footerText" id="contact">
         <p>
           MIT 2023 © <span class="footerhighlight">Martin Simental.</span> All
           Rights Reserved
         </p>
         <p>
-          Crafted By <span class="footerhighlight">Jacob Price</span> Made With
-          ♥
+          Crafted By
+          <span class="footerhighlight"
+            ><a href="https://jacobprice.dad" target="_blank">Jacob Price</a>
+          </span>
+          Made With ♥
         </p>
       </div>
     </footer>
