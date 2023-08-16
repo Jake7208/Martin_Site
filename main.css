@@ -12,7 +12,7 @@ html {
   font-family: "inter", sans-serif;
   scroll-behavior: smooth;
   scroll-padding-top: 75px;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 .background {
   transition: all 0.5s;
@@ -155,6 +155,10 @@ nav ul a:hover {
   color: #e6e5e5;
   text-decoration: none;
 }
+.menu_link:hover {
+  color: #6d64d0;
+  transition: all 0.5s;
+}
 
 .menu_link::before {
   content: "";
@@ -165,20 +169,20 @@ nav ul a:hover {
   bottom: 45%;
   pointer-events: none;
   opacity: 0; /* Initially hidden */
-  transition: opacity 0.5s; /* Transition for hover effect */
+  transition: opacity 0.3s; /* Transition for hover effect */
 }
 
 .menu_link:hover::before {
   opacity: 1;
 }
 
-.menu_link:hover::after {
-  transition-duration: 0.2s;
-  transform: translateX(10%);
-  transition: all 0.9s;
+.menu_link:hover::before {
+  transition-duration: 2s;
+  transform: translateX(100%);
+  transition: all 2s;
 }
-.menu_link:not(:hover)::after {
-  transition-duration: 0.2s ease-in-out;
+.menu_link:not(:hover)::before {
+  transition-duration: 5s ease-in;
   transform: translateX(0);
   transition: all 0.9s;
 }
@@ -190,35 +194,17 @@ nav ul a:hover {
   position: relative;
   z-index: 2;
 }
-.a::after,
-.b::after,
-.c::after,
-.d::after,
-.e::after {
+.a::before,
+.b::before,
+.c::before,
+.d::before,
+.e::before {
   position: absolute;
   top: 0;
   left: 0;
-  width: 500vw;
   height: 100%;
   background: #1f1f1f;
-  color: #968fea;
   z-index: 20;
-}
-
-.a::after {
-  content: "HOME HOME HOME HOME HOME";
-}
-.b::after {
-  content: "SERVICES SERVICES SERVICES SERVICES";
-}
-.c::after {
-  content: "QUOTE QUOTE QUOTE QUOTE";
-}
-.d::after {
-  content: "TESTIMONIAL TESTIMONIAL TESTIMONIAL";
-}
-.e::after {
-  content: "CONTACT CONTACT CONTACT CONTACT";
 }
 
 .heroSection {
