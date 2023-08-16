@@ -169,13 +169,58 @@ nav ul a:hover {
 }
 
 .menu_link:hover::before {
-  opacity: 1; /* Display on hover */
+  opacity: 1;
 }
 
-.menu_link:hover {
+.menu_link:hover::after {
   transition-duration: 0.2s;
-  opacity: 0.8;
+  transform: translateX(10%);
+  transition: all 0.9s;
 }
+.menu_link:not(:hover)::after {
+  transition-duration: 0.2s ease-in-out;
+  transform: translateX(0);
+  transition: all 0.9s;
+}
+.a,
+.b,
+.c,
+.d,
+.e {
+  position: relative;
+  z-index: 2;
+}
+.a::after,
+.b::after,
+.c::after,
+.d::after,
+.e::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500vw;
+  height: 100%;
+  background: #1f1f1f;
+  color: #968fea;
+  z-index: 20;
+}
+
+.a::after {
+  content: "HOME HOME HOME HOME HOME";
+}
+.b::after {
+  content: "SERVICES SERVICES SERVICES SERVICES";
+}
+.c::after {
+  content: "QUOTE QUOTE QUOTE QUOTE";
+}
+.d::after {
+  content: "TESTIMONIAL TESTIMONIAL TESTIMONIAL";
+}
+.e::after {
+  content: "CONTACT CONTACT CONTACT CONTACT";
+}
+
 .heroSection {
   background: #1f1f1f;
   width: 100%;
@@ -215,7 +260,7 @@ nav ul a:hover {
 
 .heroSection button {
   padding: 10px 20px;
-  width: clamp(150px, 25vw, 200px);
+  width: clamp(160px, 25vw, 200px);
   height: clamp(40px, 10vw, 50px);
   border: none;
   border-radius: 50px;
@@ -320,7 +365,6 @@ nav ul a:hover {
   height: 40vh;
   width: 100%;
   border-radius: 20px;
-
   display: flex;
   align-items: start;
   white-space: normal;
@@ -695,9 +739,10 @@ footer {
   }
   .navContainer {
     right: 1rem;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
   }
+
   .heroImage {
     display: none;
   }
@@ -762,6 +807,11 @@ footer {
     width: 90vw;
     margin: 0 auto;
   }
+  .navContainer {
+    right: 1rem;
+    width: 70px;
+    height: 70px;
+  }
   .contact {
     height: 70vh;
   }
@@ -796,6 +846,12 @@ footer {
   .testimonialCard {
     min-width: 90vw;
     background: #968fea;
+  }
+  .footerText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
