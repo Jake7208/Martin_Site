@@ -9,14 +9,30 @@
   <body>
     <nav>
       <ul>
-        <li><a id="services">Services</a></li>
-        <li><a id="quote">Quote</a></li>
-        <li><a id="testimonial">Testimonial</a></li>
-        <li><a id="contact">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#quote">Quote</a></li>
+        <li><a href="#testimonial">Testimonial</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-
-    <div class="heroSection">
+    <div class="menuPopUp hide" id="hamburger">
+      <div class="navContainer magnetic">
+        <span></span>
+      </div>
+    </div>
+    <div class="menu">
+      <div class="nav-container">
+        <div class="menu_item">
+          <a href="#home" class="menu_link">Home</a>
+          <a href="#services" class="menu_link">Services</a>
+          <a href="#quote" class="menu_link">Quote</a>
+          <a href="#testimonial" class="menu_link">Testimonial</a>
+          <a href="#contact" class="menu_link">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="heroSection" id="home">
       <div class="heroImage"></div>
       <div class="heroText">
         <h1>
@@ -76,44 +92,96 @@
           </div>
         </div>
       </div>
-      <div id="quote" class="quote">
-        <h1>
-          Quote
-          <svg
-            width="40"
-            height="30"
-            viewBox="0 0 64 49"
-            preserveAspectRatio="xMidYMid"
-          >
-            <path
-              d="M0 14.049C0 4.11111 4.4388 0.129484 12.4751 0L13.3454 4.69379C8.70354 5.2441 6.44062 7.93089 6.73073 12.1715H10.9084V24.1164H0V14.049ZM17.117 14.049C17.117 4.11111 21.5558 0.129484 29.592 0L30.4624 4.69379C25.8205 5.2441 23.5286 7.93089 23.8477 12.1715H28.0254V24.1164H17.117V14.049ZM46.883 34.1838C46.883 44.1216 42.4442 48.1033 34.408 48.2328L33.5666 43.539C38.2085 43.021 40.5005 40.3019 40.1813 36.0936H35.9746V24.1164H46.883V34.1838ZM64 34.1838C64 44.1216 59.5612 48.1033 51.5249 48.2328L50.6546 43.539C55.2965 43.021 57.5884 40.3019 57.2693 36.0936H53.0916V24.1164H64V34.1838Z"
-              fill="#6D64D0"
-            />
-          </svg>
-        </h1>
-        <div class="quoteBox">
-          <div class="quoteContainer">
-            <label>Model</label>
-            <select name="phone" id="phone">
-              <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
-              <option value="iPhone 14 Pro">iPhone 14 Pro</option>
-              <option value="iPhone 14">iPhone 14</option>
-              <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
-              <option value="iPhone 13 Pro">iPhone 13 Pro</option>
-              <option value="iPhone 13">iPhone 13</option>
-            </select>
-          </div>
-          <div class="priceContainer">
-            <label>Price</label>
-            <div id="price"></div>
-          </div>
-          <button class="filled">Schedule an Appointment</button>
+    </section>
+    <div id="quote" class="quote">
+      <h1>
+        Quote
+        <svg
+          width="40"
+          height="30"
+          viewBox="0 0 64 49"
+          preserveAspectRatio="xMidYMid"
+        >
+          <path
+            d="M0 14.049C0 4.11111 4.4388 0.129484 12.4751 0L13.3454 4.69379C8.70354 5.2441 6.44062 7.93089 6.73073 12.1715H10.9084V24.1164H0V14.049ZM17.117 14.049C17.117 4.11111 21.5558 0.129484 29.592 0L30.4624 4.69379C25.8205 5.2441 23.5286 7.93089 23.8477 12.1715H28.0254V24.1164H17.117V14.049ZM46.883 34.1838C46.883 44.1216 42.4442 48.1033 34.408 48.2328L33.5666 43.539C38.2085 43.021 40.5005 40.3019 40.1813 36.0936H35.9746V24.1164H46.883V34.1838ZM64 34.1838C64 44.1216 59.5612 48.1033 51.5249 48.2328L50.6546 43.539C55.2965 43.021 57.5884 40.3019 57.2693 36.0936H53.0916V24.1164H64V34.1838Z"
+            fill="#6D64D0"
+          />
+        </svg>
+      </h1>
+      <div class="quoteBox">
+        <div class="quoteContainer">
+          <label>Model</label>
+          <select name="phone" id="phone">
+            <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
+            <option value="iPhone 14 Pro">iPhone 14 Pro</option>
+            <option value="iPhone 14">iPhone 14</option>
+            <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
+            <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+            <option value="iPhone 13">iPhone 13</option>
+          </select>
+        </div>
+        <div class="priceContainer">
+          <label>Price</label>
+          <div id="price"></div>
+        </div>
+        <button class="filled">Schedule an Appointment</button>
+      </div>
+    </div>
+
+    <section id="testimonial">
+      <div class="testimonial">
+        <h1>Testimonials</h1>
+        <div class="testimonialButtons">
+          <button class="testimonialButton" id="testimonialButton">
+            <svg
+              width="33"
+              height="24"
+              viewBox="0 0 43 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M41 13.5C41.8284 13.5 42.5 12.8284 42.5 12C42.5 11.1716 41.8284 10.5 41 10.5V13.5ZM0.939339 10.9393C0.353554 11.5251 0.353554 12.4749 0.939339 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939339 10.9393ZM41 10.5L2 10.5V13.5L41 13.5V10.5Z"
+                fill=""
+              />
+            </svg>
+          </button>
+          <button class="testimonialButtonB" id="testimonialButtonB">
+            <svg
+              width="33"
+              height="24"
+              viewBox="0 0 43 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 10.5C1.17157 10.5 0.5 11.1716 0.5 12C0.5 12.8284 1.17157 13.5 2 13.5V10.5ZM42.0607 13.0607C42.6464 12.4749 42.6464 11.5251 42.0607 10.9393L32.5147 1.3934C31.9289 0.807611 30.9792 0.807611 30.3934 1.3934C29.8076 1.97919 29.8076 2.92893 30.3934 3.51472L38.8787 12L30.3934 20.4853C29.8076 21.0711 29.8076 22.0208 30.3934 22.6066C30.9792 23.1924 31.9289 23.1924 32.5147 22.6066L42.0607 13.0607ZM2 13.5H41V10.5H2V13.5Z"
+                fill=""
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="testimonialCards" id="testimonialCards">
+          <div class="testimonialCard card active"></div>
+          <div class="testimonialCard card"></div>
+          <div class="testimonialCard card"></div>
+          <div class="testimonialCard card"></div>
         </div>
       </div>
-      <div class="testimonial" id="testimonial">
-        <h1>Testimonials</h1>
+    </section>
+    <section class="contact" id="contact">
+      <div class="contactText">
+        <h1>Schedule an Appointment: Monday - Friday, 8am - 5pm</h1>
+        <div class="contactButtons">
+          <a class="magnetic">(435) - 294 - 5018</a>
+          <a class="magnetic">martin.simental.hernandez@gmail.com</a>
+        </div>
       </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="main.js"></script>
   </body>
-  <script src="main.js"></script>
 </html>

@@ -6,10 +6,17 @@
   box-sizing: border-box;
 }
 
-body {
-  /* background-color: #1f1f1f; */
+body,
+html {
+  background-color: #c5c5c5;
   font-family: "inter", sans-serif;
   scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+  overflow-x: hidden;
+}
+.background {
+  transition: all 0.5s;
+  background-color: #ffffff;
 }
 
 nav {
@@ -31,6 +38,8 @@ nav ul a {
   color: #e6e5e5;
   font-size: large;
   cursor: pointer;
+  transition: all 0.5s;
+  text-decoration: none;
 }
 
 nav ul a:hover {
@@ -39,10 +48,131 @@ nav ul a:hover {
   cursor: pointer;
   transition: all 0.5s;
 }
+.menuPopUp {
+  display: flex;
+  width: 95vw;
+  margin: 0 auto;
+  justify-content: end;
+  align-items: center;
+  position: fixed;
+  top: 8%;
+  transition: all 0.5s;
+  z-index: 21;
+}
 
+.navContainer {
+  position: fixed;
+  top: 2.5rem;
+  right: 4rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5%;
+  width: 80px;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  animation: morph 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.navContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #6d64d0;
+  border-radius: 5%;
+  z-index: -1;
+  animation: Morph 5s infinite;
+}
+
+.navContainer span {
+  width: 30px;
+  height: 2px;
+  position: relative;
+  background: #1f1f1f;
+}
+.navContainer span::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 2px;
+  transform: translateY(6px);
+  background: #1f1f1f;
+}
+
+.navContainer:hover span::after,
+.navContainer:hover span {
+  width: 30px;
+  transform: translateY(0) rotate(-90deg);
+  background: #1f1f1f;
+  transition: all 0.2s;
+}
+
+.navContainer:not(:hover) span {
+  transform: rotate(0);
+  transition: all 0.2s;
+}
+.nav-container {
+  position: fixed;
+  right: -100vw;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: #1f1f1f;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+.activeNav {
+  transition: all 0.5s;
+  right: 0;
+  top: 0;
+}
+
+.menu_item {
+  position: relative;
+  padding: 0 6vw;
+  font-size: clamp(2rem, 18vw, 150px);
+}
+
+.menu_link {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  transition: opacity 0.5s;
+  color: #e6e5e5;
+  text-decoration: none;
+}
+
+.menu_link::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #968fea;
+  position: absolute;
+  bottom: 45%;
+  pointer-events: none;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s; /* Transition for hover effect */
+}
+
+.menu_link:hover::before {
+  opacity: 1; /* Display on hover */
+}
+
+.menu_link:hover {
+  transition-duration: 0.2s;
+  opacity: 0.8;
+}
 .heroSection {
   background: #1f1f1f;
-  width: 100%; /* Change this to 100vw */
+  width: 100%;
   margin: 0 auto;
   height: 80vh;
   display: grid;
@@ -149,23 +279,24 @@ nav ul a:hover {
   color: #1f1f1f;
 }
 
-.mainSection h1 {
+.mainSection h1,
+.testimonial h1 {
   font-size: clamp(1.8rem, 5vw, 3rem);
   margin-bottom: 2%;
 }
-.services {
-  height: auto;
-  margin-bottom: 10%;
+
+.services,
+.quote {
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: start;
 }
 
 .serviceCards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  overflow-x: auto;
   gap: 2rem;
-  align-items: center;
 }
 
 .serviceCardA,
@@ -179,17 +310,21 @@ nav ul a:hover {
   cursor: pointer;
   display: flex;
   align-items: start;
+  white-space: normal;
 }
+
 .cardWrapper {
   width: 80%;
   margin: 0 auto;
   padding: 20px 0;
 }
+
 .cardWrapper p {
   padding: 20px 0;
   line-height: 150%;
   font-size: clamp(1rem, 3vw, 1.1rem);
 }
+
 .cardWrapper a {
   padding: 10px 20px;
   color: #1f1f1f;
@@ -201,6 +336,7 @@ nav ul a:hover {
   bottom: 20px;
   z-index: 2;
 }
+
 .serviceCardA:hover,
 .serviceCardB:hover {
   background: #968fea;
@@ -229,17 +365,23 @@ nav ul a:hover {
   transition: all 0.5s;
   z-index: -1;
 }
+
 .serviceCardA {
   color: #1f1f1f;
 }
+
 /*  Quote Section For quote machine */
 .quote {
-  height: 70vh;
+  height: 80vh;
+  width: 70vw;
+  margin: 0 auto;
 }
+
 .quote h1 {
   font-size: clamp(1.8rem, 5vw, 3rem);
   margin-bottom: 10%;
 }
+
 .quoteBox {
   width: 100%;
   margin: 0 auto;
@@ -250,10 +392,13 @@ nav ul a:hover {
   border-radius: 10px;
   padding: 5% 10%;
   gap: 2rem;
+  /* margin-bottom: 20%; */
 }
+
 .quoteContainer {
   grid-column: span 2;
 }
+
 .quoteContainer,
 .priceContainer {
   display: flex;
@@ -294,17 +439,20 @@ nav ul a:hover {
   border-radius: 50px;
   font-size: clamp(0.8rem, 3vw, 1.1rem);
 }
+
 .priceContainer .highlight {
   font-size: 2rem;
   color: #968fea;
   font-weight: 700;
   margin-left: 3%;
 }
+
 .serviceCost {
   width: 80%;
   font-size: clamp(1rem, 3vw, 1.1rem);
   margin: 0 auto;
 }
+
 .quoteBox button {
   grid-column: span 3;
   width: 100%;
@@ -319,17 +467,166 @@ nav ul a:hover {
   cursor: pointer;
   margin-top: 20px;
 }
+
 .quoteBox button:hover {
   color: #363636;
   background: #d4d4d3;
 
   transition: all 0.5s;
 }
+/* Testimonial Section  */
+
+.testimonial {
+  width: 100%;
+  height: 80vh;
+}
+.testimonialCards {
+  width: 85vw;
+  display: flex;
+  float: right;
+  height: 60vh;
+  overflow: hidden;
+  gap: 2rem;
+  scroll-behavior: smooth;
+}
+
+.testimonialCard {
+  margin: 0 auto;
+  scroll-snap-align: center;
+  width: 100%;
+  min-width: 800px;
+  height: 50vh;
+  background-color: #d4d4d3;
+  border-radius: 10px;
+  gap: 2rem;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+.testimonialCard:nth-child(4) {
+  margin-right: 800px;
+}
+.testimonial h1 {
+  width: 70vw;
+  margin: 0 auto;
+}
+.testimonialButtons {
+  width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  margin-bottom: 2%;
+}
+
+.testimonialButton,
+.testimonialButtonB {
+  position: relative;
+  border: none;
+  background: #d4d4d3;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  gap: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testimonialButtons svg {
+  fill: #6d64d0;
+}
+
+.testimonialButton:hover svg,
+.testimonialButtonB:hover svg {
+  fill: #ffffff;
+  transition: all 0.3s;
+}
+.active {
+  background: #968fea;
+}
+.testimonialButton:hover,
+.testimonialButtonB:hover {
+  background: #968fea;
+  transition: all 0.5s;
+}
+
+/* Contact Section */
+
+.contact {
+  width: 70vw;
+  height: 80vh;
+  margin: 5% auto;
+  background: #1f1f1f;
+  border-radius: 10px;
+}
+
+.contact h1 {
+  width: 60vw;
+  margin: 0 auto;
+  padding: 30px 0;
+  color: #d4d4d3;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 10%;
+}
+.contactButtons {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+.contactButtons::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 3px;
+  background: #968fea;
+  left: 8%;
+  z-index: 1;
+}
+.contactButtons a {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 80px;
+  border-radius: 50px;
+  border: #968fea solid 3px;
+  color: #d4d4d3;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: #1f1f1f;
+  z-index: 2;
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+}
+.contactButtons a:hover {
+  transition: 0.3s all;
+  color: #1f1f1f;
+  background: #968fea;
+}
 
 /* Media Queries */
+
+@media screen and (min-width: 1330px) {
+  .hide {
+    display: none;
+    transition: all 0.5s;
+  }
+}
 @media screen and (max-width: 1330px) {
   nav {
     display: none;
+  }
+  .navContainer {
+    right: 1rem;
+    width: 60px;
+    height: 60px;
   }
   .heroImage {
     display: none;
@@ -342,18 +639,20 @@ nav ul a:hover {
   .specialCard {
     width: 100%;
   }
-  .serviceCards {
-    grid-template-columns: 1fr;
-  }
   .cardWrapper {
     height: 40vh;
   }
   .cardWrapper p {
     padding: 10px 0;
   }
+  .quote {
+    margin-top: 30%;
+    /* margin: 20% 0; */
+    display: flex;
+    justify-content: start;
+  }
   .quoteBox {
     grid-template-columns: 1fr;
-    padding: none;
   }
   .quoteContainer {
     grid-column: span 3;
@@ -361,10 +660,86 @@ nav ul a:hover {
   .priceContainer {
     grid-column: span 3;
   }
+  .testimonialCards {
+    margin: 5% auto;
+  }
+  .testimonialCard:nth-child(4) {
+    margin-right: 0;
+  }
+  .contactButtons {
+    flex-direction: column;
+  }
+  .contact {
+    width: 70vw;
+  }
+  .contactButtons::before {
+    display: none;
+  }
+  .contactButtons a {
+    width: 80%;
+  }
+  .hide {
+    display: 100%;
+  }
 }
 
 @media screen and (max-width: 800px) {
-  .mainSection {
+  .mainSection,
+  .testimonial,
+  .testimonial h1,
+  .contact,
+  .quote {
     width: 90vw;
+    margin: 0 auto;
+  }
+  .contact {
+    height: 70vh;
+  }
+  .contact h1 {
+    width: 90%;
+    padding: 20% 0;
+  }
+  .serviceCards {
+    display: flex;
+    overflow-x: scroll;
+    width: 100%;
+    gap: 2rem;
+    scroll-snap-type: x mandatory;
+  }
+  .serviceCardA,
+  .serviceCardB {
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
+    background: #968fea;
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 5%;
+  }
+  .testimonialCards {
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    overflow: auto;
+  }
+  .testimonialButtons {
+    display: none;
+  }
+  .testimonialCard {
+    min-width: 90vw;
+    background: #968fea;
+  }
+}
+
+@keyframes Morph {
+  0% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 50%;
+  }
+  75% {
+    border-radius: 40% 70% 40% 90%/50% 60% 40% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
   }
 }
